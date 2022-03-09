@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Mark Rieke" />
+
+<meta name="date" content="2022-03-07" />
+
+<title>Getting Started</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Getting Started</h1>
+<h4 class="author">Mark Rieke</h4>
+<h4 class="date">2022-03-07</h4>
+
+
+
+<p>When creating models, the range of expected outcomes is often just as important as the most likely outcome. For example, a prediction that a house will have a price of $250,000 +/- $10,000 has a vastly different interpretation than a prediction that a house will have a price of $250,000 +/- $50,000! Some models (like linear models) can output both point predictions and confidence intervals (<em>N.B. this is actually different than a prediction interval</em>) around each prediction but other — often more powerful — models can only output point predictions.</p>
+<p>This is where <a href="https://rsample.tidymodels.org/reference/bootstraps.html">bootstrap resampling</a> can help! Creating <code>n</code> resamples of the original dataset allows us to create <code>n</code> models — one for each resample. These many models can then be used to predict on new data and create a distribution of expected outcomes for each prediction.</p>
+<p><code>{workboots}</code> is a tidy implementation of this solution written around the core function <code>predict_boots()</code>. Pass an untrained workflow object to <code>predict_boots()</code> to return a tibble of nested predictions for each observation.</p>
+<div id="generating-point-predictions" class="section level2">
+<h2>Generating point predictions</h2>
+<p>Let’s work through a motivating example of predicting a penguin’s weight (<code>body_mass_g</code>) from other characteristics using the Palmer Penguins dataset.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;penguins&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>penguins</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 333 x 7</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 Adelie  Torgersen           39.1          18.7               181        3750</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 Adelie  Torgersen           39.5          17.4               186        3800</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 Adelie  Torgersen           40.3          18                 195        3250</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 Adelie  Torgersen           36.7          19.3               193        3450</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 Adelie  Torgersen           39.3          20.6               190        3650</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 Adelie  Torgersen           38.9          17.8               181        3625</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 Adelie  Torgersen           39.2          19.6               195        4675</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 Adelie  Torgersen           41.1          17.6               182        3200</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 Adelie  Torgersen           38.6          21.2               191        3800</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 Adelie  Torgersen           34.6          21.1               198        4400</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 323 more rows, and 1 more variable: sex &lt;fct&gt;</span></span></code></pre></div>
+<p><a href="https://xgboost.readthedocs.io/en/stable/">XGBoost</a> is a powerful model architecture, but only can generate point predictions. To generate single estimates for each penguin’s weight, we can create and fit a workflow (some useful resources for how to use <code>{tidymodels}</code> include the <a href="https://www.tidymodels.org/">tidymodels package site</a> and the book <a href="https://www.tmwr.org/">Tidy Modeling with R</a>).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split data into training and testing sets</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>penguins_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(penguins)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>penguins_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(penguins_split)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>penguins_train <span class="ot">&lt;-</span> <span class="fu">training</span>(penguins_split)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create a workflow</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>penguins_wf <span class="ot">&lt;-</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add preprocessing steps</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">recipe</span>(body_mass_g <span class="sc">~</span> ., <span class="at">data =</span> penguins_train) <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>())</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add xgboost model specification</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">boost_tree</span>(<span class="st">&quot;regression&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">set_engine</span>(<span class="st">&quot;xgboost&quot;</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># fit to training data &amp; predict on test data</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>penguins_preds <span class="ot">&lt;-</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  penguins_wf <span class="sc">%&gt;%</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(penguins_train) <span class="sc">%&gt;%</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(penguins_test)</span></code></pre></div>
+<p>As mentioned above, XGBoost models only generate point predictions.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins_preds <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(penguins_test) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass_g,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> .pred)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">3000</span>, <span class="at">xend =</span> <span class="dv">6000</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="dv">3000</span>, <span class="at">yend =</span> <span class="dv">6000</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Single XGBoost Model Predictions&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="using-workboots-to-generate-prediction-intervals" class="section level2">
+<h2>Using <code>{workboots}</code> to Generate Prediction Intervals</h2>
+<p>With <code>{workboots}</code>, however, we can generate a prediction distribution for each penguin’s weight in the test set! To do so, we’ll pass our workflow to <code>predict_boots()</code>, which will return a nested tibble with a set of predictions for each penguin in the <code>penguins_test</code> set.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(workboots)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create 100 models from bootstrap resamples and make predictions on the test set</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>penguins_preds_boot <span class="ot">&lt;-</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  penguins_wf <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict_boots</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="dv">100</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">training_data =</span> penguins_train,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">new_data =</span> penguins_test</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>penguins_preds_boot</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 84 x 2</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    rowid .preds            </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;int&gt; &lt;list&gt;            </span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     1 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     3 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     4 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     5 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     6 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     7 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     8 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     9 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10    10 &lt;tibble [100 x 2]&gt;</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 74 more rows</span></span></code></pre></div>
+<p>From each set of nested predictions, we can summarize with a lower and upper bound of our prediction interval (this uses the <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/quantile"><code>quantile()</code></a> function under the hood).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>penguins_preds_boot <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_predictions</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 84 x 5</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    rowid .preds             .pred_lower .pred .pred_upper</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;int&gt; &lt;list&gt;                   &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     1 &lt;tibble [100 x 2]&gt;       3296. 3469.       3799.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2 &lt;tibble [100 x 2]&gt;       3307. 3528.       3825.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     3 &lt;tibble [100 x 2]&gt;       3369. 3617.       3913.</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     4 &lt;tibble [100 x 2]&gt;       3799. 4129.       4492.</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     5 &lt;tibble [100 x 2]&gt;       3662. 3899.       4102.</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     6 &lt;tibble [100 x 2]&gt;       3258. 3522.       3819.</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     7 &lt;tibble [100 x 2]&gt;       3281. 3450.       3582.</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     8 &lt;tibble [100 x 2]&gt;       3736. 4073.       4340.</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     9 &lt;tibble [100 x 2]&gt;       3221. 3453.       3616.</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10    10 &lt;tibble [100 x 2]&gt;       3195. 3388.       3611.</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 74 more rows</span></span></code></pre></div>
+<p>This allows us to include a prediction interval along with our point predictions!</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins_preds_boot <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_predictions</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(penguins_test) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass_g,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> .pred,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">ymin =</span> .pred_lower,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">ymax =</span> .pred_upper)) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;XGBoost Model Prediction Intervals from Bootstrap Resampling&quot;</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Error bars represent the 2.5/97.5% quantiles&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

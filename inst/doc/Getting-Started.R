@@ -65,19 +65,26 @@ penguins_preds %>%
                color = "gray") +
   labs(title = "Single XGBoost Model Predictions")
 
-## -----------------------------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
+#  library(workboots)
+#  
+#  # create 2000 models from bootstrap resamples and make predictions on the test set
+#  set.seed(345)
+#  penguins_preds_boot <-
+#    penguins_wf %>%
+#    predict_boots(
+#      n = 2000,
+#      training_data = penguins_train,
+#      new_data = penguins_test
+#    )
+#  
+#  penguins_preds_boot
+
+## ---- echo=FALSE--------------------------------------------------------------
 library(workboots)
 
-# create 100 models from bootstrap resamples and make predictions on the test set
-set.seed(345)
-penguins_preds_boot <- 
-  penguins_wf %>%
-  predict_boots(
-    n = 100,
-    training_data = penguins_train,
-    new_data = penguins_test
-  )
-
+# load data from workboots_support (avoid re-fitting on knit)
+penguins_preds_boot <-readr::read_rds("https://github.com/markjrieke/workboots_support/blob/main/data/penguins_preds.rds?raw=true") 
 penguins_preds_boot
 
 ## -----------------------------------------------------------------------------
@@ -97,5 +104,5 @@ penguins_preds_boot %>%
   geom_errorbar(alpha = 0.5) +
   geom_point(alpha = 0.5) +
   labs(title = "XGBoost Model Prediction Intervals from Bootstrap Resampling",
-       subtitle = "Error bars represent the 2.5/97.5% quantiles")
+       subtitle = "Error bars represent the 95% prediction interval")
 

@@ -27,8 +27,8 @@ assert_tune <- function(workflow, index) {
   if (length(model_arg) != 0) {
 
     assertthat::assert_that(
-      model_arg != "tune",
-      msg = "all tuning parameters must be final."
+      model_arg[1] != "tune",
+      msg = paste0("all tuning parameters must be final before passing workflow to `predict_boots()`.")
     )
 
   }
@@ -53,25 +53,40 @@ assert_n <- function(n) {
 }
 
 # Util function for checking training_data and new_data params
-assert_pred_data <- function(workflow, data) {
+assert_pred_data <- function(workflow, data, type) {
 
   # get colnames from workflow
-  cols_wf <- workflow$pre$actions$recipe$recipe$var_info$variable
+  var_info <- workflow$pre$actions$recipe$recipe$var_info
 
-  # get colnames from data
+  if (type == "training") {
+
+    # check that colnames include all predictors and outcomes
+    var_info <- dplyr::filter(var_info, role %in% c("predictor", "outcome"))
+
+  } else { # type == "new"
+
+    # check that colnames include all predictors
+    var_info <- dplyr::filter(var_info, role == "predictor")
+
+  }
+
+  # get colnames for comparison
+  cols_wf <- var_info$variable
   cols_dat <- colnames(data)
 
   # check that all cols in wf appear in data
+  # message displays any names that appear in cols_wf that don't appear in cols_dat
   assertthat::assert_that(
     sum(cols_wf %in% cols_dat) == length(cols_wf),
-    msg = paste0("missing cols in training_data or new_data.\n",
-                 "All predictors used in workflow must be present.")
+    msg = paste0("missing cols in ", type, "_data:\n",
+                 paste(cols_wf[which(!cols_wf %in% cols_dat)],
+                       collapse = ", "))
   )
 
 }
 
 # Util function for checking .data passed to summary functions
-assert_summary_data <- function(data) {
+assert_pred_summary <- function(data) {
 
   # check for col .preds
   assertthat::assert_that(
@@ -90,6 +105,29 @@ assert_summary_data <- function(data) {
   assertthat::assert_that(
     class(data$.preds[[1]]$model.pred) == "numeric",
     msg = "col `model.pred` must be numeric."
+  )
+
+}
+
+# Util function for checking .data passed to importance summary function
+assert_importance_summary <- function(data) {
+
+  # check for col .importances
+  assertthat::assert_that(
+    ".importances" %in% names(data),
+    msg = "col `.importances` missing."
+  )
+
+  # check that .importances is a list
+  assertthat::assert_that(
+    class(data$.importances) == "list",
+    msg = "col `.importances` must be a list-col."
+  )
+
+  # check that model.importance is numeric
+  assertthat::assert_that(
+    class(data$.importances[[1]]$model.importance) == "numeric",
+    msg = "col `model.importance` must be numeric."
   )
 
 }

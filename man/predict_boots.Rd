@@ -4,7 +4,14 @@
 \alias{predict_boots}
 \title{Fit and predict from a workflow using many bootstrap resamples.}
 \usage{
-predict_boots(workflow, n = 100, training_data, new_data, ...)
+predict_boots(
+  workflow,
+  n = 2000,
+  training_data,
+  new_data,
+  verbose = FALSE,
+  ...
+)
 }
 \arguments{
 \item{workflow}{An un-fitted workflow object.}
@@ -14,6 +21,9 @@ predict_boots(workflow, n = 100, training_data, new_data, ...)
 \item{training_data}{A tibble or dataframe of data to be resampled and used for training.}
 
 \item{new_data}{A tibble or dataframe used to make predictions.}
+
+\item{verbose}{A logical. Defaults to \code{FALSE}. If set to \code{TRUE}, prints progress
+of training to console.}
 
 \item{...}{Additional params passed to \code{rsample::bootstraps()}.}
 }

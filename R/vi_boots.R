@@ -1,9 +1,9 @@
 #' Fit and estimate variable importance from a workflow using many bootstrap resamples.
 #'
-#' Generate a prediction interval from arbitrary model types using bootstrap
-#' resampling. `predict_boots()` generates `n` bootstrap resamples, fits a model
-#' to each resample (creating `n` models), then creates `n` estimates of variable
-#' importance for each variable in the model.
+#' Generate variable importances from a tidymodel workflow using bootstrap resampling.
+#' `vi_boots()` generates `n` bootstrap resamples, fits a model to each (creating
+#' `n` models), then creates `n` estimates of variable importance for each variable
+#' in the model.
 #'
 #' @details Since `vi_boots()` fits a new model to each resample, the
 #'  argument `workflow` must not yet be fit. Any tuned hyperparameters must be
@@ -45,7 +45,7 @@
 #' # fit and estimate variable importance from 125 bootstrap resampled models
 #' set.seed(123)
 #' wf %>%
-#'   vi_boots(n = 125, training_data = mtcars)
+#'   vi_boots(n = 2000, training_data = mtcars)
 #' }
 vi_boots <- function(workflow,
                      n = 2000,
@@ -112,6 +112,8 @@ vi_boots <- function(workflow,
 #' @importFrom generics fit
 #' @importFrom vip vi
 #' @importFrom workflows extract_fit_engine
+#'
+#' @noRd
 #'
 vi_single_boot <- function(workflow,
                            boot_splits,
